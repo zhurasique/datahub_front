@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,7 +49,12 @@
                     </div>
                 </div>
                 <div class="type-bar" id="type-bar">
-
+                    <div id="types">
+                        <a class="department-block flex align-items-center" name="department" v-for="type in types" :key="type.id" v-on:focus.native="loadTypes">
+                            <img src="static/img/Elektronika.svg">
+                            {{ type.name }}
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

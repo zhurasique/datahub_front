@@ -8,6 +8,8 @@
     <title>sklepik.pl - atrakcyjne ceny</title>
     <link rel='icon' href='favicon.ico' type='image/x-icon'/>
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
 </head>
 <body>
 
@@ -34,22 +36,27 @@
     </header>
     <div class="main">
         <div class="wrapper">
-            <div class="department-bar">
-                <div class="under-border">
-                    <p id="font-spacing">Działy</p>
-                </div>
-                <div class="block">
-                    <div>
-                        <div class="flex-space-between department">
-                            <img src="static/img/department-1.png" id="department-logo">
-                            <p>Elektronika</p>
-                        </div>
-
+            <div class="flex hello-block">
+                <div class="department-bar">
+                    <div class="under-border">
+                        <p id="font-spacing">Działy</p>
                     </div>
+                    <div class="block" id="departments">
+                        <a class="department-block flex align-items-center" name="department" v-for="department in departments" :key="department.id">
+                            <img src="static/img/Elektronika.svg">
+                            {{ department.name }}
+                        </a>
+                    </div>
+                </div>
+                <div class="type-bar" id="type-bar">
+
                 </div>
             </div>
         </div>
     </div>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="static/js/index.js"></script>
 </body>
 </html>

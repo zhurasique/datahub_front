@@ -50,7 +50,7 @@
                 </div>
                 <div class="type-bar" id="type-bar">
                     <div id="types">
-                        <a class="department-block flex align-items-center" name="department" v-for="type in types" :key="type.id" v-on:focus.native="loadTypes">
+                        <a class="department-block flex align-items-center" name="department" v-for="type in types" :key="type.id" >
                             <img src="static/img/Elektronika.svg">
                             {{ type.name }}
                         </a>

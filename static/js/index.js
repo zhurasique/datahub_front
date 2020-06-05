@@ -3,6 +3,7 @@ let typeApi = "http://localhost:8080/api/type/";
 let productApi = "/api/product";
 
 let chosenDepartmentId = 3;
+let departmentsId = [];
 
 var departments = new Vue({
     el: "#departments",
@@ -21,28 +22,15 @@ var departments = new Vue({
             })
                 .then(response => {
                     this.departments = response.data;
+                    departmentsId = response.data;
                 }).catch(error => {
                 console.log(error);
             });
 
-        },
-
-        loadTypes: function () {
-            this.types = [];
-            axios({
-                method: "get",
-                url: typeApi + "filter/department/id?id=" + chosenDepartmentId
-            })
-                .then(response => {
-                    this.types = response.data;
-                }).catch(error => {
-                console.log(error);
-            });
         }
     },
     created: function () {
         this.loadDepartments(this.departments);
-        this.loadTypes(this.types);
     }
 });
 
@@ -63,7 +51,6 @@ var types = new Vue({
             })
                 .then(response => {
                     this.types = response.data;
-                    console.log(response.data);
                 }).catch(error => {
                 console.log(error);
             });
@@ -78,12 +65,13 @@ document.addEventListener('DOMContentLoaded', function(){
     setTimeout(function() {
         let departments = document.getElementsByName("department");
 
-        let types = document.getElementById("type-bar");
+        let type = document.getElementById("type-bar");
 
         for (let i = 0; i < departments.length; i++) {
             departments[i].addEventListener('mouseover', function()  {
-                chosenDepartmentId = departments[i];
-                types.style.display = "unset";
+                chosenDepartmentId = departmentsId[i].id;
+                types.loadTypes();
+                type.style.display = "unset";
             }, false);
             departments[i].addEventListener('mouseout',  function() {
                 typesCheckActive("type-bar");

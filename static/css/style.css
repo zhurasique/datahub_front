@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -7,7 +9,7 @@ body {
     margin: 0;
     height: 100%;
     box-sizing: border-box;
-    font-family: Open Sans,sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 header{
@@ -117,7 +119,6 @@ header{
 
 .department-block{
     padding-left: 25px;
-    border-radius: 5px;
     border-left: 2px solid white;
 }
 
@@ -127,7 +128,6 @@ header{
 }
 
 .department-block:hover, .department-block:focus{
-    padding-left: 27px;
     cursor: pointer;
     color: #ff598a;
     filter: invert(51%) sepia(65%) saturate(2480%) hue-rotate(310deg) brightness(101%) contrast(101%);
@@ -151,8 +151,46 @@ header{
     width: 900px;
     background-color: white;
     display: none;
+    flex-wrap: wrap;
 }
 
 .hello-block{
     margin: 10px;
+}
+
+#showed-type-category{
+    padding-right: 30px;
+}
+
+#type{
+    margin-top: 15px;
+    font-size: 19px;
+}
+
+#type a{
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+}
+
+#type a:hover{
+    color: #54cab6
+}
+
+#categories{
+    margin-top: 6px;
+}
+
+#categories a{
+    text-decoration: none;
+    color: #2b2b2b;
+}
+
+#categories a:hover{
+    color: #54cab6
+}
+
+#showed-category{
+    padding-top: 3px;
+    padding-bottom: 3px;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,24 +42,27 @@
                         <p id="font-spacing">Działy</p>
                     </div>
                     <div class="block" id="departments">
-                        <a class="department-block flex align-items-center" name="department" v-for="department in departments" :key="department.id">
-                            <img src="static/img/Elektronika.svg">
+                        <a class="department-block flex align-items-center" name="department" v-for="(department, index) in departments" key="department.id">
+                            <img v-bind:src="images[index]">
                             {{ department.name }}
                         </a>
                     </div>
                 </div>
-                <div class="type-bar" id="type-bar">
-                    <div id="types">
-                        <a class="department-block flex align-items-center" name="department" v-for="type in types" :key="type.id" >
-                            <img src="static/img/Elektronika.svg">
-                            {{ type.name }}
-                        </a>
+                <div class="type-bar" id="types">
+                    <div class="block" id="showed-type-category" v-for="type in types" :key="type.id">
+                        <div id="type">
+                            <a href="#" id="showed-type">{{ type.name }}</a>
+                        </div>
+                        <div id="categories">
+                            <div class="block" v-for="category in categories" :key="category.id">
+                                <a href="#" id="showed-category" v-if="type.name == category.type.name">{{ category.name }}</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="static/js/index.js"></script>

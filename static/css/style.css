@@ -120,9 +120,6 @@ header{
 .department-block{
     padding-left: 25px;
     border-left: 2px solid white;
-}
-
-.department-block a{
     text-decoration: none;
     color: #222;
 }

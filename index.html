@@ -42,7 +42,7 @@
                         <p id="font-spacing">Działy</p>
                     </div>
                     <div class="block" id="departments">
-                        <a class="department-block flex align-items-center" name="department" v-for="(department, index) in departments" key="department.id">
+                        <a class="department-block flex align-items-center" name="department" v-for="(department, index) in departments" key="department.id" v-bind:href="links[index]">
                             <img v-bind:src="images[index]">
                             {{ department.name }}
                         </a>

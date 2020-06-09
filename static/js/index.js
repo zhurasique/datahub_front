@@ -11,7 +11,8 @@ var departments = new Vue({
     data: function(){
         return {
             departments: [],
-            images: []
+            images: [],
+            links: []
         }
     },
 
@@ -25,7 +26,8 @@ var departments = new Vue({
                     this.departments = response.data;
                     departmentsId = response.data;
                     for(let i = 0; i < departmentsId.length; i++) {
-                        this.images.push("./static/img/" + departmentsId[i].id + ".svg");
+                        this.images.push("./static/img/" + departmentsId[i].name.toLocaleLowerCase().trim().replace(/ /g,"-") + ".svg");
+                        this.links.push("/dzial/" + departmentsId[i].name.toLocaleLowerCase().trim().replace(/ /g,"-"))
                     }
                 }).catch(error => {
                 console.log(error);

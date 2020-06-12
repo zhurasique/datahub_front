@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:tiles="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Error 404 - sklepik.pl</title>
+    <link rel='icon' href='favicon.ico' type='image/x-icon'/>
+    <link rel="stylesheet" type="text/css" href="static/css/header.css">
+    <link rel="stylesheet" type="text/css" href="static/css/login.css">
+</head>
+<body>
+<header>
+    <div class="flex-space-between header-wrapper">
+        <div class="logo-bar">
+            <img src="static/img/logo_full.png" id="main-logo">
+        </div>
+        <div class="search-bar">
+            <form>
+                <div class="flex">
+                    <input type="search" placeholder="czego szukasz?" id="search-input">
+                    <button id="search-button">SZUKAJ</button>
+                </div>
+            </form>
+        </div>
+        <div class="bag-bar">
+            <img src="static/img/bag.png" id="bag-logo">
+        </div>
+        <div class="login-bar">
+            <img src="static/img/login.png" id="login-logo">
+        </div>
+    </div>
+</header>
+<div class="main">
+    <div class="wrapper">
+        <div class="sec-wrap">
+            <div tiles:fragment="content" class="login">
+                <form name="f" th:action="@{/login}" method="post">
+                    <h1>Login</h1>
+                    <div class="block">
+                        <div class="flex justify-content-center">
+                            <img src="static/img/user.svg">
+                            <input type="text" id="username" name="username" placeholder="username"/>
+                        </div>
+                        <div class="flex justify-content-center pt-30">
+                            <img src="static/img/password.svg">
+                            <input type="password" id="password" name="password" placeholder="password"/>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn">Log in !</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

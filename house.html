@@ -1,10 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>sklepik.pl - atrakcyjne ceny</title>
+    <link rel='icon' href='favicon.ico' type='image/x-icon'/>
+    <link rel="stylesheet" type="text/css" href="static/css/header.css">
+    <link rel="stylesheet" type="text/css" href="static/css/house.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
 </head>
 <body>
 
+<header>
+    <div class="flex-space-between header-wrapper">
+        <div class="logo-bar">
+            <img src="static/img/logo_full.png" id="main-logo">
+        </div>
+        <div class="search-bar">
+            <form>
+                <div class="flex">
+                    <input type="search" placeholder="czego szukasz?" id="search-input">
+                    <button id="search-button">SZUKAJ</button>
+                </div>
+            </form>
+        </div>
+        <div class="bag-bar">
+            <img src="static/img/bag.png" id="bag-logo">
+        </div>
+        <div class="login-bar">
+            <img src="static/img/login.png" id="login-logo">
+        </div>
+    </div>
+</header>
+
+<div class="main">
+    <div class="wrapper" id="types">
+        <h1>{{ departmentName }}</h1>
+        <div class="type-bar">
+            <div class="block" id="showed-type-category" v-for="(type, index) in types" :key="type.id">
+                <a href="#" id="type">
+                    <div class="img-bg">
+                        <img v-bind:src="images[index]">
+                        <h2 id="showed-type">{{ type.name }}</h2>
+                    </div>
+                </a>
+                <div id="categories">
+                    <a class="block" v-for="category in categories" :key="category.id" href="#" id="showed-category" v-if="type.name == category.type.name">
+                        {{ category.name }}
+                    </a>
+                </div>
+
+                <div class="all-div">
+                    <a href="#" id="all">Wszystkie kategorie</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="static/js/house.js"></script>
 </body>
 </html>

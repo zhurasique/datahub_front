@@ -1,7 +1,6 @@
 let departmentApi = "http://localhost:8080/api/department";
 let typeApi = "http://localhost:8080/api/type/";
 let categoryApi = "http://localhost:8080/api/category/";
-let productApi = "/api/product";
 
 let chosenDepartmentId;
 let departmentsId = [];

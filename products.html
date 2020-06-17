@@ -38,7 +38,8 @@
 
 <div class="main">
     <div class="wrapper" id="products">
-        <div class="block" id="showed-type-category" v-for="(product, index) in products" :key="product.id">
+        <div class="flex" id="showed-type-category" v-for="product in products" :key="product.id">
+            <img v-for="(image, index) in images" :key="image.id" v-if="product.id == images[index].product.id" v-bind:src="images[index].image"/>
             {{ product.name }}
         </div>
     </div>

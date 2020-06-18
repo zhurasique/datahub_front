@@ -13,6 +13,9 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
+function isInteger(num) {
+    return (num ^ 0) === num;
+}
 
 var byType = getParameterByName('type');
 var byCategory = getParameterByName('category');
@@ -50,6 +53,12 @@ var products = new Vue({
                 .then(response => {
                     this.products = response.data;
                     for(let i = 0; i < this.products.length; i++) {
+                        if(isInteger(this.products[i]["price"])){
+                            this.products[i]["price"] = this.products[i]["price"].toString() + ",00 zł";
+                        }else{
+                            this.products[i]["price"] = this.products[i]["price"].toString().trim().replace(/\./g,",") + " zł";
+                        }
+                        //
                         //this.links.push("/dzial/" + this.types[i].name.toLocaleLowerCase().trim().replace(/ /g,"-"))
                     }
                 }).catch(error => {
@@ -64,7 +73,6 @@ var products = new Vue({
             })
                 .then( response => {
                     this.images = response.data;
-
 
                     for(let i = 0; i < this.images.length; i++)
                         this.images[i]["image"] = "http://localhost/dashboard/images/datahub/" + this.images[i]["image"];
